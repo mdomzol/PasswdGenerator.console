@@ -1,43 +1,43 @@
 # 🔐 Password Generator (C# Console App)
 
-Prosta aplikacja konsolowa w C# do generowania bezpiecznych haseł zgodnych z wymaganiami polityki haseł Microsoft (np. Microsoft 365 / Entra ID).
+A simple C# console application for generating secure passwords compliant with Microsoft password policies (e.g., Microsoft 365 / Entra ID).
 
-## 📌 Funkcje
+## 📌 Features
 
-* Generowanie losowych haseł o długości od **8 do 256 znaków**
-* Spełnia wymagania bezpieczeństwa:
+* Generate random passwords with length **8–256 characters**
+* Meets security requirements:
 
-  * co najmniej **3 z 4 kategorii znaków**:
+  * at least **3 out of 4 character categories**:
 
-    * małe litery
-    * wielkie litery
-    * cyfry
-    * symbole
-* Domyślnie używa **wszystkich 4 kategorii** (maksymalna zgodność)
-* Usuwa mylące znaki:
+    * lowercase letters
+    * uppercase letters
+    * digits
+    * symbols
+* Uses **all 4 categories by default** (maximum compatibility)
+* Excludes ambiguous characters:
 
   * `O`, `0`
   * `l`, `1`
   * `I`
-* Wykorzystuje **kryptograficznie bezpieczny generator losowy**
-* Walidacja hasła
-* Konsola nie zamyka się automatycznie po wykonaniu
+* Uses a **cryptographically secure random number generator**
+* Built-in password validation
+* Console stays open until user exits
 
 ---
 
-## ▶️ Jak uruchomić
+## ▶️ Getting Started
 
-### Wymagania
+### Requirements
 
-* .NET 6.0 lub nowszy
+* .NET 6.0 or newer
 
-### Uruchomienie
+### Run the app
 
 ```bash
 dotnet run
 ```
 
-lub po zbudowaniu:
+### Build and run (Release)
 
 ```bash
 dotnet build -c Release
@@ -46,7 +46,7 @@ dotnet build -c Release
 
 ---
 
-## 🧪 Przykładowe hasło
+## 🧪 Example Output
 
 ```
 A7$dKp2!
@@ -56,29 +56,30 @@ P@4zW8!k
 
 ---
 
-## 🔐 Bezpieczeństwo
+## 🔐 Security
 
-Aplikacja korzysta z:
+The application uses:
 
 * `System.Security.Cryptography.RandomNumberGenerator`
 
-Zamiast standardowego `Random`, co zapewnia:
+Instead of `Random`, which ensures:
 
-* brak przewidywalności
-* zgodność z dobrymi praktykami bezpieczeństwa
-
----
-
-## ⚙️ Jak to działa
-
-1. Program pobiera długość hasła od użytkownika
-2. Zapewnia obecność znaków z wymaganych kategorii
-3. Uzupełnia resztę znaków losowo
-4. Tasuje wynik, aby uniknąć przewidywalnych wzorców
+* better entropy
+* resistance to prediction
+* alignment with security best practices
 
 ---
 
-## 📁 Struktura projektu
+## ⚙️ How It Works
+
+1. The user provides the desired password length
+2. The app guarantees required character categories
+3. Remaining characters are filled randomly
+4. Final password is shuffled to avoid predictable patterns
+
+---
+
+## 📁 Project Structure
 
 ```
 /PasswordGenerator
@@ -89,23 +90,23 @@ Zamiast standardowego `Random`, co zapewnia:
 
 ---
 
-## 🚀 Możliwe rozszerzenia
+## 🚀 Possible Improvements
 
-* kopiowanie hasła do schowka
-* generowanie wielu haseł naraz
-* eksport do pliku
-* GUI (WinForms / WPF)
-* integracja z Microsoft Graph API (automatyczne tworzenie użytkowników)
-
----
-
-## ⚠️ Uwagi
-
-* Nie przechowuj wygenerowanych haseł w repozytorium
-* Nie używaj generatora do produkcji bez audytu bezpieczeństwa (jeśli projekt rośnie)
+* copy password to clipboard
+* generate multiple passwords at once
+* export to file
+* GUI version (WinForms / WPF)
+* integration with Microsoft Graph API (user provisioning)
 
 ---
 
-## 📄 Licencja
+## ⚠️ Notes
 
-MIT (lub dowolna, którą wybierzesz)
+* Do not store generated passwords in the repository
+* Do not use in production environments without proper security review
+
+---
+
+## 📄 License
+
+MIT (or any license you choose)
